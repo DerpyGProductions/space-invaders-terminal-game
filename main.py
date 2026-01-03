@@ -521,7 +521,7 @@ def main(stdscr):
 
 
 
-        stdscr.addstr(4, 30, "LEVEL COMPLETE!")
+        stdscr.addstr(4, 20, "LEVEL COMPLETE!")
         stdscr.refresh()
         curses.napms(2000)
 
