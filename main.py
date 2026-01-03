@@ -5,7 +5,7 @@ from curses import wrapper
 
 Game_Lost = False
 
-SCREEN_SIZE_X = 75
+SCREEN_SIZE_X = 55
 SCREEN_SIZE_Y = 15
 
 GAME_TICK = 1.3 #seconds
@@ -284,14 +284,14 @@ def main(stdscr):
     lev = 0
     while (Game_Lost == False and key != ord('q') and player["hp"] > 0):
         lev += 1
-        stdscr.addstr(4, 30, "                ")
+        stdscr.addstr(4, 22, "                ")
         current_lev, level_data = generateLevel(lev)
 
         if is_boss_round(level_data):
-            stdscr.addstr(4, 30, "!!! BOSS APPROACHING !!!")
+            stdscr.addstr(4, 22, "!!! BOSS APPROACHING !!!")
             stdscr.refresh()
             time.sleep(2)
-            stdscr.addstr(4, 30, " " * 30)
+            stdscr.addstr(4, 22, " " * 30)
 
         current_enemy_index = 0
 
@@ -494,10 +494,10 @@ def main(stdscr):
 
                 message = levelUp()
 
-                stdscr.addstr(4, 30, message)
+                stdscr.addstr(4, 22, message)
                 stdscr.refresh()
                 time.sleep(1)
-                stdscr.addstr(4, 30, " " * len(message))
+                stdscr.addstr(4, 22, " " * len(message))
 
             if 1 <= powerup["x"] < SCREEN_SIZE_X - 1 and 1 <= powerup["y"] < SCREEN_SIZE_Y - 1:
                 stdscr.addstr(powerup["y"], powerup["x"], "P")
@@ -521,13 +521,13 @@ def main(stdscr):
 
 
 
-        stdscr.addstr(4, 20, "LEVEL COMPLETE!")
+        stdscr.addstr(4, 22, "LEVEL COMPLETE!")
         stdscr.refresh()
         curses.napms(2000)
 
     stdscr.clear()
     stdscr.refresh()
-    stdscr.addstr(4, 30, "GAME  OVER!")
+    stdscr.addstr(4, 22, "GAME  OVER!")
     stdscr.refresh()
 
     time.sleep(3)
